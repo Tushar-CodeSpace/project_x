@@ -3,6 +3,7 @@ import app from "./app";
 import connectDB from "./config/db";
 import { getConfig, loadConfig } from "./modules/config/config.service";
 import logger from "./config/logger";
+import { loadRoutes } from "./modules/routes/route.loader";
 
 dotenv.config({ quiet: true });
 
@@ -12,6 +13,10 @@ const startServer = async () => {
 
     await connectDB();
     await loadConfig();
+
+    await loadRoutes(app);
+
+
     const PORT = getConfig("port")
 
     app.listen(PORT, () => {

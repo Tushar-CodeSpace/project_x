@@ -1,0 +1,12 @@
+{
+    "_id": "170d08cf-0016-4130-a348-6d2fb3918a3f",
+    "port": "8000",
+    "routes": [
+        {
+            "route_id": "route1"
+        },
+        {
+            "route_id": "route2"
+        }
+    ]
+}

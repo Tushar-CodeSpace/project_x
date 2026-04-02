@@ -1,0 +1,6 @@
+{
+    "_id": "route1",
+    "path": "/api/v1/test",
+    "method": "GET",
+    "controller_id": "controller1"
+}
