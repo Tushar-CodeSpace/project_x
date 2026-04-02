@@ -1,6 +1,14 @@
-export const startServer = async () => {
-    console.log("Starting server...");
-    // Simulate some async initialization work
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Server started successfully!");
-};
+import express from "express";
+import defaultRoutes from "./modules/default/default.routes";
+import httpLogger from "./common/middleware/httpLogger";
+
+
+const app = express();
+
+app.use(express.json());
+app.use(httpLogger);
+
+app.use("/api", defaultRoutes);
+
+
+export default app;

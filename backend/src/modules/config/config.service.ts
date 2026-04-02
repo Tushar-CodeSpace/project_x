@@ -1,3 +1,4 @@
+import logger from "../../config/logger";
 import Config from "./config.model";
 
 let cachedConfig: Record<string, any> = {};
@@ -7,7 +8,7 @@ export const loadConfig = async () => {
 
     cachedConfig = config ? config.toObject() : {};
 
-    console.log("Config loaded:", cachedConfig);
+    logger.info({ config }, "Config loaded successfully");
 };
 
 export const getConfig = (key: string) => {
