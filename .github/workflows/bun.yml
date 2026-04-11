@@ -10,7 +10,9 @@ jobs:
       - uses: oven-sh/setup-bun@v1
       - run: bun install
         working-directory: backend
-      - run: bun run dev
+      - run: bun run build
+        working-directory: backend
+      - run: bun run start
         working-directory: backend
 
 #   frontend:

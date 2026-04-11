@@ -4,9 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "start": "bun ./dist/server.js",
+    "build": "bun build --target=bun --outfile=./dist/server.js .",
     "start:dev": "bun .",
     "start:prod": "bun build --target=bun --outfile=./dist/server.js . && node ./dist/server.js",
-    "dev": "bun --watch src/server.ts"
+    "dev": "bun --watch ."
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
