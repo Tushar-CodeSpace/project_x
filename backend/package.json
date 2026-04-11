@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "bun .",
     "start:prod": "bun build --target=bun --outfile=./dist/server.js . && node ./dist/server.js",
-    "dev": "bun --watch ."
+    "dev": "bun --watch src/server.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
