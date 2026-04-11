@@ -7,17 +7,20 @@ import { loadRoutes } from "./modules/routes/route.loader";
 
 dotenv.config({ quiet: true });
 
-
 const startServer = async () => {
-    logger.info("Connecting to database...");
+    const isCI = process.env.CI === "true";
 
-    await connectDB();
+    if (!isCI) {
+        logger.info("Connecting to database...");
+        await connectDB();
+    } else {
+        logger.info("Skipping DB connection (CI environment)");
+    }
+
     await loadConfig();
-
     await loadRoutes(app);
 
-
-    const PORT = getConfig("port")
+    const PORT = getConfig("port");
 
     app.listen(PORT, () => {
         logger.info({ port: PORT }, "Server running on port");
