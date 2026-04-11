@@ -13,14 +13,15 @@ const startServer = async () => {
     if (!isCI) {
         logger.info("Connecting to database...");
         await connectDB();
+        await loadConfig();
+        await loadRoutes(app);
     } else {
         logger.info("Skipping DB connection (CI environment)");
+
     }
 
-    await loadConfig();
-    await loadRoutes(app);
 
-    const PORT = getConfig("port");
+    const PORT = getConfig("port") || 3000;
 
     app.listen(PORT, () => {
         logger.info({ port: PORT }, "Server running on port");
